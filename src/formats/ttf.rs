@@ -23,11 +23,18 @@ impl<'a> TTF<'a> {
 
     let u_major_version = self.reader.read_u16()?;
     let u_minor_version = self.reader.read_u16()?;
-    let u_num_of_tables = self.reader.read_u16()?;
 
     if u_major_version != 1 || u_minor_version != 0 {
-      return Err(Error::new(ErrorKind::InvalidData, "Not a ttf file"));
+      self.reader.jmp(self.base_offset);
+
+      let tag = self.reader.read_cstr();
+
+      if tag != "OTTO" {
+        return Err(Error::new(ErrorKind::InvalidData, "Not a ttf or otf file"));
+      }
     }
+
+    let u_num_of_tables = self.reader.read_u16()?;
 
     self.num_of_tables = u_num_of_tables;
 
