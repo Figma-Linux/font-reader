@@ -1,7 +1,9 @@
 [package]
 name = "font-reader"
 version = "0.1.0"
+authors = ["Chugunov Roman <Zebs-BMK@yandex.ru>"]
 edition = "2018"
+license = "GPL-2.0-only"
 
 description = "Reads fonts in passed directories and return objects of fonts for Figma Font Helper"
 homepage = "https://github.com/ChugunovRoman/font-reader"
