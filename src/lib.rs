@@ -10,7 +10,7 @@ use std::io::{Error, ErrorKind};
 use std::path::Path;
 use types::Fonts;
 
-pub fn read(path: String) -> Result<Fonts, Error> {
+pub fn read(path: &str) -> Result<Fonts, Error> {
   let parsed = Path::new(&path);
   let ext = parsed.extension().unwrap();
 
