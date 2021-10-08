@@ -1,4 +1,3 @@
-#[macro_use]
 extern crate binary_reader;
 
 mod formats;
