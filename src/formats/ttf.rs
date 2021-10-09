@@ -27,7 +27,7 @@ impl<'a> TTF<'a> {
     if u_major_version != 1 || u_minor_version != 0 {
       self.reader.jmp(self.base_offset);
 
-      let tag = self.reader.read_cstr();
+      let tag = self.reader.read_cstr()?;
 
       if tag != "OTTO" {
         return Err(Error::new(ErrorKind::InvalidData, "Not a ttf or otf file"));

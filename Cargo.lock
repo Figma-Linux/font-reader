@@ -4,9 +4,8 @@ version = 3
 
 [[package]]
 name = "binary-reader"
-version = "0.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e48cce52612e84b87ff80e95d91e6ee21c3131fcc7410d236a820e5bfe351ee4"
+version = "0.3.1"
+source = "git+https://github.com/bugadani/binary-reader.rs?branch=fallible#5223421d37835900c21d99c87f11c4de51538c22"
 dependencies = [
  "byteorder",
 ]
@@ -19,7 +18,7 @@ checksum = "14c189c53d098945499cdfa7ecc63567cf3886b3332b312a5b4585d8d3a6a610"
 
 [[package]]
 name = "font-reader"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "binary-reader",
 ]

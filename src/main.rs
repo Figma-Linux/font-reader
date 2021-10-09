@@ -11,6 +11,7 @@ fn main() {
     "/usr/share/fonts/volkhov/Volkhov-BoldItalic.ttf",
     "/usr/share/fonts/users/PTSerifCaption.ttc",
     "/usr/share/fonts/opentype/malayalam/Manjari-Bold.otf",
+    "/home/ruut/.local/share/bad_fonts/Portico Light Rough.otf",
   ];
 
   for path in paths {

@@ -1,6 +1,6 @@
 [package]
 name = "font-reader"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Chugunov Roman <Zebs-BMK@yandex.ru>"]
 edition = "2018"
 license = "GPL-2.0-only"
@@ -14,4 +14,4 @@ keywords = ["System", "Fonts"]
 categories = ["filesystem"]
 
 [dependencies]
-binary-reader = "0.3.0"
+binary-reader = { git = "https://github.com/bugadani/binary-reader.rs", branch = "fallible" }
