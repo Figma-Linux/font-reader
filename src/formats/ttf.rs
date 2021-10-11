@@ -45,9 +45,25 @@ impl<'a> TTF<'a> {
     self.reader.jmp(12);
 
     for _ in 0..self.num_of_tables {
-      let table_name_data = self.reader.read(4).expect("Cannot read ttf table name");
-      let table_name = String::from_utf8(table_name_data.to_vec())
-        .expect("Cannot parse table name bytes into String");
+      let table_name_data = match self.reader.read(4) {
+        Some(value) => value,
+        None => {
+          return Err(Error::new(
+            ErrorKind::InvalidInput,
+            "Cannot read ttf table name",
+          ))
+        }
+      };
+
+      let table_name = match String::from_utf8(table_name_data.to_vec()) {
+        Ok(value) => value,
+        Err(err) => {
+          return Err(Error::new(
+            ErrorKind::InvalidInput,
+            format!("Cannot parse table name bytes into String, err: {}", err),
+          ))
+        }
+      };
 
       // Skip check sum
       self.reader.adv(4);
