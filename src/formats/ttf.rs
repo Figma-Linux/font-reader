@@ -112,7 +112,20 @@ impl<'a> TTF<'a> {
           .unwrap()
           .to_vec();
         string_bytes.retain(|&i| i != 0);
-        let value = String::from_utf8(string_bytes.to_vec()).unwrap();
+        let mut value = String::from("");
+
+        match String::from_utf8(string_bytes.to_vec()) {
+          Ok(str) => value = str,
+          Err(err) => {
+            return Err(Error::new(
+              ErrorKind::InvalidInput,
+              format!(
+                "Cannot read value of the head table param, id: {}, err: {}",
+                name_id, err
+              ),
+            ))
+          }
+        };
 
         // Family name
         if name_id == 1 {
