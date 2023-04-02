@@ -136,12 +136,15 @@ impl<'a> TTF<'a> {
         };
 
         // Family name
-        if name_id == 1 && font.id == "" {
+        if name_id == 1 && font.id == "" && value.as_bytes()[0].is_ascii_alphabetic() {
           font.id = String::from(&value);
           font.family = String::from(&value);
         }
         // style name
-        if font.style == "" && (name_id == 2 || name_id == 17) {
+        if font.style == ""
+          && value.as_bytes()[0].is_ascii_alphabetic()
+          && (name_id == 2 || name_id == 17)
+        {
           font.style = String::from(&value);
 
           if value.contains("Italic") {
@@ -149,7 +152,7 @@ impl<'a> TTF<'a> {
           }
         }
         // postscript name
-        if name_id == 6 && font.postscript == "" {
+        if name_id == 6 && font.postscript == "" && value.as_bytes()[0].is_ascii_alphabetic() {
           font.postscript = String::from(&value);
         }
 
