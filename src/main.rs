@@ -14,10 +14,10 @@ fn main() {
     // "/home/ruut/.local/share/fonts/Segoe/SegoeUI-Light.ttf",
     // "/home/ruut/.local/share/fonts/Segoe/SegoeUI-SemiBold.ttf",
     // "/home/ruut/.local/share/fonts/Segoe/SegoeUI.ttf",
-    "/home/ruut/.local/share/fonts/otf/expletus-sans-italic.otf",
-    "/home/ruut/.local/share/bad_fonts/Portico Light Rough.otf",
-    "/home/ruut/.local/share/fonts/variable/AngstVF.ttf",
-    "/home/ruut/.local/share/fonts/variable/RobotoFlex[slnt,wdth,wght,opsz].ttf",
+    // "/home/ruut/.local/share/fonts/otf/expletus-sans-italic.otf",
+    // "/home/ruut/.local/share/bad_fonts/Portico Light Rough.otf",
+    // "/home/ruut/.local/share/fonts/variable/AngstVF.ttf",
+    // "/home/ruut/.local/share/fonts/variable/RobotoFlex[slnt,wdth,wght,opsz].ttf",
     // "/home/ruut/.local/share/fonts/otf/fundamental-brigade-scvhlank.otf",
     // "/home/ruut/.local/share/fonts/otf/SFMonoBoldItalic.otf",
     // "/home/ruut/.local/share/fonts/otf/SFMonoBold.otf",
@@ -31,6 +31,8 @@ fn main() {
     // "/home/ruut/.local/share/fonts/otf/SFMonoRegular.otf",
     // "/home/ruut/.local/share/fonts/otf/SFMonoSemiboldItalic.otf",
     // "/home/ruut/.local/share/fonts/otf/SFMonoSemibold.otf",
+    "/usr/share/fonts/truetype/Gargi/Gargi.ttf",
+    "/usr/share/fonts/users/DevanagariMT.ttc",
   ];
 
   for path in paths {
