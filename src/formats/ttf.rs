@@ -136,12 +136,14 @@ impl<'a> TTF<'a> {
         };
 
         // Family name
-        if name_id == 1 && font.id == "" && value.as_bytes()[0].is_ascii_alphabetic() {
+        if name_id == 1 && font.id == "" && value != "" && value.as_bytes()[0].is_ascii_alphabetic()
+        {
           font.id = String::from(&value);
           font.family = String::from(&value);
         }
         // style name
         if font.style == ""
+          && value != ""
           && value.as_bytes()[0].is_ascii_alphabetic()
           && (name_id == 2 || name_id == 17)
         {
@@ -152,7 +154,11 @@ impl<'a> TTF<'a> {
           }
         }
         // postscript name
-        if name_id == 6 && font.postscript == "" && value.as_bytes()[0].is_ascii_alphabetic() {
+        if name_id == 6
+          && font.postscript == ""
+          && value != ""
+          && value.as_bytes()[0].is_ascii_alphabetic()
+        {
           font.postscript = String::from(&value);
         }
 
