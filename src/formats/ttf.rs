@@ -108,13 +108,14 @@ impl<'a> TTF<'a> {
     for _ in 0..name_record_count {
       let platform_id = self.reader.read_u16()?;
       let encoding_id = self.reader.read_u16()?;
-      self.reader.adv(2); // skip language id
+      let language_id = self.reader.read_u16()?;
       let name_id = self.reader.read_u16()?;
       let string_length_id = self.reader.read_u16()?;
       let string_offset_id = self.reader.read_u16()?;
       let prev_offset = self.reader.pos;
 
       if string_length_id > 0
+        && language_id == 1033
         && (platform_id == 0 || platform_id == 3)
         && (encoding_id == 0 || encoding_id == 1 || encoding_id == 3)
         && (name_id == 1 || name_id == 2 || name_id == 6 || name_id == 17)
